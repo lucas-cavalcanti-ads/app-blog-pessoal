@@ -2,7 +2,6 @@ import { ListaTecnologias } from './../../models/listaTecnologia.model';
 import { TecnologiasService } from './../../services/tecnologias.service';
 import { UtilitarioService } from './../../services/utilitario.service';
 
-
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -21,8 +20,7 @@ export class TecnologiasComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     await this.serviceUtilitario.delay();
     this.listaTecnologias = this.serviceTecnologias.buscarTodasTecnologias();
-    this.exibirSpinner();
-    
+    this.exibirSpinner();    
   }
 
   exibirSpinner(){

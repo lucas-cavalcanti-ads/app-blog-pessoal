@@ -13,6 +13,4 @@ export class UtilitarioService {
             }, MILLISECONDS_IN_DELAY);
         });
     }
-
-
 }
