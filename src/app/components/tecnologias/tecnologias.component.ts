@@ -23,5 +23,4 @@ export class TecnologiasComponent implements OnInit {
     this.listaTecnologiasMetodologias = this.serviceTecnologias.buscarTecnologiasMetodologias();
     this.listaTecnologiasMobile = this.serviceTecnologias.buscarTecnologiasMobile();    
   }
-
 }
