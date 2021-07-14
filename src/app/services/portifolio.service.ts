@@ -41,7 +41,5 @@ export class PortifoliosService{
                 description: "Protótipo da aplicação para a problemática proposta.",
             }
         ];
-    }
-
-    
+    }    
 }

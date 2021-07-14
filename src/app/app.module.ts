@@ -13,8 +13,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 
@@ -33,8 +36,11 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
+    MatButtonToggleModule,
     MatCardModule,
-    MatButtonToggleModule
+    MatDividerModule,
+    MatListModule,
+    MatProgressSpinnerModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

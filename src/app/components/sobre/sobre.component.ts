@@ -1,3 +1,4 @@
+import { UtilitarioService } from './../../services/utilitario.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SobreComponent implements OnInit {
 
-  constructor() { }
+  exibeSpinner: boolean = true;
 
-  ngOnInit(): void {
+  constructor(private serviceUtilitario: UtilitarioService) { }
+
+  async ngOnInit(): Promise<void> {
+    await this.serviceUtilitario.delay(1000);
+    this.exibirSpinner();
   }
 
+  exibirSpinner(){
+    this.exibeSpinner = false;
+  }
 }

@@ -1,3 +1,4 @@
+import { UtilitarioService } from './../../services/utilitario.service';
 import { PortifoliosService } from './../../services/portifolio.service';
 import { Portifolio } from './../../models/portifolio.model';
 import { Component, OnInit } from '@angular/core';
@@ -10,11 +11,18 @@ import { Component, OnInit } from '@angular/core';
 export class PortifolioComponent implements OnInit {
 
   listaPortifolios: Array<Portifolio> = [];
+  exibeSpinner: boolean = true;
 
-  constructor(private servicePortifolio : PortifoliosService) { }
+  constructor(private servicePortifolio : PortifoliosService, private serviceUtilitario: UtilitarioService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    await this.serviceUtilitario.delay(1000);
+    this.exibirSpinner();
     this.listaPortifolios = this.servicePortifolio.buscarPortifolios();
+  }
+
+  exibirSpinner(){
+    this.exibeSpinner = false;
   }
 
 }

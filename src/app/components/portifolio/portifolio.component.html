@@ -2,11 +2,8 @@
   <h2 class="site-subtitle text-left pt-3">
     Portifófio
   </h2>
-
-  <!-- INICIO DO GRID -->
   <div class="container text-center">
     <div class="row justify-content-center">
-      
       <div *ngFor="let portifolio of listaPortifolios" class="col-sm-8 col-md-12 col-lg-8 col-xl-4 p-0 m-4 efeito-card">
         <mat-card class="example-card card">
           <mat-card-header>
@@ -17,11 +14,9 @@
             <p>
               {{ portifolio.description }}
             </p>
-          </mat-card-content>          
+          </mat-card-content>
         </mat-card>
       </div>
-
     </div>
-  </div>
-  <!-- TÉRMINO DO GRID -->
+  </div>  
 </section>
