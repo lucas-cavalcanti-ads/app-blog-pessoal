@@ -13,7 +13,7 @@ export class SobreComponent implements OnInit {
   constructor(private serviceUtilitario: UtilitarioService) { }
 
   async ngOnInit(): Promise<void> {
-    await this.serviceUtilitario.delay(1000);
+    await this.serviceUtilitario.delay();
     this.exibirSpinner();
   }
 

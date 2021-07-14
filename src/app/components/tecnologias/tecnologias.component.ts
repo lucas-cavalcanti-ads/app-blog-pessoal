@@ -19,7 +19,7 @@ export class TecnologiasComponent implements OnInit {
   constructor(private serviceTecnologias:TecnologiasService, private serviceUtilitario: UtilitarioService ) { }
 
   async ngOnInit(): Promise<void> {
-    await this.serviceUtilitario.delay(1000);
+    await this.serviceUtilitario.delay();
     this.listaTecnologias = this.serviceTecnologias.buscarTodasTecnologias();
     this.exibirSpinner();
     

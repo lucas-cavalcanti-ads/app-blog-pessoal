@@ -18,7 +18,7 @@ export class PortifolioComponent implements OnInit {
   constructor(private servicePortifolio : PortifoliosService, private serviceUtilitario: UtilitarioService) { }
 
   async ngOnInit(): Promise<void> {
-    await this.serviceUtilitario.delay(1000);
+    await this.serviceUtilitario.delay();
     this.exibirSpinner();
     this.listaPortifolios = this.servicePortifolio.buscarPortifolios();
   }

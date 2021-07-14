@@ -5,11 +5,12 @@ export class UtilitarioService {
 
     constructor() { }
 
-    delay(ms: number): Promise<boolean> {
+    delay(): Promise<boolean> {
+        const MILLISECONDS_IN_DELAY = 1000;
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve(true);
-            }, ms);
+            }, MILLISECONDS_IN_DELAY);
         });
     }
 
