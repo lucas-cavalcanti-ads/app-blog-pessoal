@@ -1,5 +1,5 @@
 <section class="secao-tecnologias" id="secao-tecnologias">
-    <h2 class="site-subtitle text-left pt-5">
+    <h2 class="site-subtitle text-left pt-2">
         Tecnologias, conceitos e metodologias em desenvolvimento
     </h2>
 
@@ -9,13 +9,7 @@
                 Front-end
             </h3>
             <ul class="list-group list-group-flush">                    
-                <li class="list-group-item bg-transparent text-light col-12"> > Angular 2+</li>
-                <li class="list-group-item bg-transparent text-light col-12"> > Angular JS</li>
-                <li class="list-group-item bg-transparent text-light col-12"> > Type Script</li>
-                <li class="list-group-item bg-transparent text-light col-12"> > Java Script</li>
-                <li class="list-group-item bg-transparent text-light col-12"> > HTML 5</li>
-                <li class="list-group-item bg-transparent text-light col-12"> > Bootstrap 4</li>
-                <li class="list-group-item bg-transparent text-light col-12"> > CSS 3</li>
+                <li *ngFor="let i of listaTecnologiasFrontEnd" class="list-group-item bg-transparent text-light col-12"> > {{ i }} </li>
             </ul>
         </div>
         <div class="col-12">
@@ -23,10 +17,7 @@
                 Back-end
             </h3>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item bg-transparent text-light col-12"> > Spring Boot</li>
-                <li class="list-group-item bg-transparent text-light col-12"> > Maven</li>                    
-                <li class="list-group-item bg-transparent text-light col-12"> > Java</li>
-                <li class="list-group-item bg-transparent text-light col-12"> > Java EE</li>                                
+                <li *ngFor="let i of listaTecnologiasBackEnd" class="list-group-item bg-transparent text-light col-12"> > {{ i }} </li>                               
             </ul>
         </div>
         <div class="col-12">
@@ -34,7 +25,7 @@
                 Mobile
             </h3>            
             <ul class="list-group list-group-flush">
-                <li class="list-group-item bg-transparent text-light col-12"> > Kotlin</li>
+                <li *ngFor="let i of listaTecnologiasMobile" class="list-group-item bg-transparent text-light col-12"> > {{ i }} </li>
             </ul>
         </div>
     </div>
@@ -44,14 +35,7 @@
                 Ferramentas
             </h3>
             <ul class="list-group list-group-flush">                    
-                <li class="list-group-item bg-transparent text-light col-12"> > Jira Corp</li>
-                <li class="list-group-item bg-transparent text-light col-12"> > Trello</li>
-                <li class="list-group-item bg-transparent text-light col-12"> > Gitlab</li>
-                <li class="list-group-item bg-transparent text-light col-12"> > Github</li>
-                <li class="list-group-item bg-transparent text-light col-12"> > Postman</li>
-                <li class="list-group-item bg-transparent text-light col-12"> > Swagger</li>
-                <li class="list-group-item bg-transparent text-light col-12"> > Adobe XD</li>
-                <li class="list-group-item bg-transparent text-light col-12"> > Android Studio</li>
+                <li *ngFor="let i of listaTecnologiasFerramentas" class="list-group-item bg-transparent text-light col-12"> > {{ i }} </li>
             </ul>
         </div>
         <div class="col-12">
@@ -59,10 +43,7 @@
                 Metodologias e conceitos
             </h3>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item bg-transparent text-light col-12"> > Rest</li>
-                <li class="list-group-item bg-transparent text-light col-12"> > JSON</li>
-                <li class="list-group-item bg-transparent text-light col-12"> > Metodologia Ágil (Scrum, Kanban)</li>
-                <li class="list-group-item bg-transparent text-light col-12"> > UX/UI</li>
+                <li *ngFor="let i of listaTecnologiasMetodologias" class="list-group-item bg-transparent text-light col-12"> > {{ i }} </li>
             </ul>
         </div>        
     </div>
