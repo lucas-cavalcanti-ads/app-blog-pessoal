@@ -7,79 +7,18 @@
   <div class="container text-center">
     <div class="row justify-content-center">
       
-      <div class="col-sm-8 col-md-12 col-lg-8 col-xl-4 p-0 m-4 efeito-card">
+      <div *ngFor="let portifolio of listaPortifolios" class="col-sm-8 col-md-12 col-lg-8 col-xl-4 p-0 m-4 efeito-card">
         <mat-card class="example-card card">
           <mat-card-header>
-            <mat-card-title>Blog Frontend</mat-card-title>
+            <mat-card-title>{{ portifolio.title }}</mat-card-title>
           </mat-card-header>
-          <img mat-card-image src="../../../assets/img/blog-frontend.png" alt="Imagem foto inicial site blog front-end">
+          <img mat-card-image src="{{ portifolio.url_image }}" alt="{{ portifolio.description }}">
           <mat-card-content>
-            <p> Uma Land Page criada durante o meu desenvolvimento no Framework Bootstrap. </p>
+            <p>
+              {{ portifolio.description }}
+            </p>
           </mat-card-content>          
         </mat-card>
-      </div>
-
-      <div class="col-sm-8 col-md-12 col-lg-8 col-xl-4 p-0 m-4 efeito-card">
-        <mat-card class="example-card card">
-          <mat-card-header>
-            <mat-card-title>Projeto Hotel</mat-card-title>
-          </mat-card-header>
-          <img mat-card-image src=".../../../assets/img/projeto-hotel.png" alt="Imagem foto inicial site blog front-end">
-          <mat-card-content>
-            <p> Essa foi a primeira Land Page que criei com HTML 5 e CSS 5. </p>
-          </mat-card-content>          
-        </mat-card>
-      </div>
-
-      <!--CARD 3 - INICIO-->
-      <div class="col-9 col-sm-8 col-md-10 col-lg-8 col-xl-4 p-0 m-4 efeito-card">
-        <div class="card">
-          <img src="../../../assets/img/cadastro.png" class="card-img-top fundo-card"
-            alt="Imagem de uma aplicação Angular JS">
-          <div class="card-body">
-            <h5 class="card-title texto-titulo">Cadastro de Imagem</h5>
-            <p class="card-text texto-cards text-secondary text-justify">Aplicação em Angular JS que permite o cadastro,
-              exlusão e alterações de imagens.</p>
-          </div>
-        </div>
-      </div>
-
-      <!--CARD 4 - INICIO-->
-      <div class="col-9 col-sm-8 col-md-10 col-lg-8 col-xl-4 p-0 m-4 efeito-card">
-        <div class="card">
-          <img src="../../../assets/img/prototipo-bytebank.png" class="card-img-top fundo-card" alt="Logo Bootstrap">
-          <div class="card-body">
-            <h5 class="card-title texto-titulo">Protótipo Bytebank - UX / UI</h5>
-            <p class="card-text texto-cards text-secondary text-justify">Protótipo realizado durante o meu
-              desenvolvimento em UX e UI.</p>
-          </div>
-        </div>
-      </div>
-
-      <!--CARD 5 - INICIO-->
-      <div class="col-9 col-sm-8 col-md-10 col-lg-8 col-xl-4 p-0 m-4 efeito-card">
-        <div class="card">
-          <img src="../../../assets/img/landpage-b2w.png" class="card-img-top fundo-card"
-            alt="Fundo de uma Land Page Web">
-          <div class="card-body">
-            <h5 class="card-title texto-titulo">Land Page Challenger</h5>
-            <p class="card-text texto-cards text-secondary text-justify">Essa é uma Land Page que foi proposta pela FIAP
-              devido a Challenger.</p>
-          </div>
-        </div>
-      </div>
-
-      <!--CARD 6 - INICIO-->
-      <div class="col-9 col-sm-8 col-md-10 col-lg-8 col-xl-4 p-0 m-4 efeito-card">
-        <div class="card">
-          <img src="../../../assets/img/aplicacao-b2w.png" class="card-img-top fundo-card"
-            alt="Fundo de uma Land Page Web">
-          <div class="card-body">
-            <h5 class="card-title texto-titulo">Protótipo Aplicação Challenger</h5>
-            <p class="card-text texto-cards text-secondary text-justify">Protótipo da aplicação para a problemática
-              proposta.</p>
-          </div>
-        </div>
       </div>
 
     </div>

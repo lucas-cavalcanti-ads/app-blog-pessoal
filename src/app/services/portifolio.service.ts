@@ -6,7 +6,6 @@ export class PortifoliosService{
 
     listaPortifolios: Array<Portifolio> = [];
     
-
     constructor(){}
 
     buscarPortifolios(): Array<Portifolio> {
@@ -41,7 +40,6 @@ export class PortifoliosService{
                 url_image: "../../../assets/img/aplicacao-b2w.png",
                 description: "Protótipo da aplicação para a problemática proposta.",
             }
-
         ];
     }
 

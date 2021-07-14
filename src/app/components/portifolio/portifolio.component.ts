@@ -1,3 +1,5 @@
+import { PortifoliosService } from './../../services/portifolio.service';
+import { Portifolio } from './../../models/portifolio.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortifolioComponent implements OnInit {
 
-  constructor() { }
+  listaPortifolios: Array<Portifolio> = [];
+
+  constructor(private servicePortifolio : PortifoliosService) { }
 
   ngOnInit(): void {
+    this.listaPortifolios = this.servicePortifolio.buscarPortifolios();
   }
 
 }
