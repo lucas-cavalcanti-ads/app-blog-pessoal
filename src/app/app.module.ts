@@ -1,33 +1,40 @@
-import { HeaderComponent } from './components/header/header.component';
+import { AppComponent } from './app.component';
+
 import { CabecalhoComponent } from './components/cabecalho/cabecalho.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
+import { PortifolioComponent } from './components/portifolio/portifolio.component';
+import { SobreComponent } from './components/sobre/sobre.component';
+import { TecnologiasComponent } from './components/tecnologias/tecnologias.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { SobreComponent } from './components/sobre/sobre.component';
-import { PortifolioComponent } from './components/portifolio/portifolio.component';
-import { TecnologiasComponent } from './components/tecnologias/tecnologias.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { MatCardModule } from '@angular/material/card';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    HeaderComponent,
     CabecalhoComponent,
-    SobreComponent,
+    FooterComponent,
+    HeaderComponent,
+    HomeComponent,
     PortifolioComponent,
-    TecnologiasComponent,
-    FooterComponent
+    SobreComponent,
+    TecnologiasComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
-    BrowserModule   
+    BrowserModule,
+    MatCardModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

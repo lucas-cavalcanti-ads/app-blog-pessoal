@@ -1,8 +1,6 @@
-/* INICIO - SEÇÃO IMAGENS */
 .secao-meuportifolio {
     background-image: linear-gradient(white, black);
-    max-width: 100vw;
-    
+    max-width: 100vw;    
     padding: 3em;
     text-align: left;
 }
@@ -11,13 +9,17 @@
     border-bottom: solid grey 2px;    
 }
 
+.card {
+    height: 100%;
+}
+
 h2{
     color: black;   
     font-size: 2rem;
     font-style: italic;    
     text-shadow: 0px 0px 5px white;      
 }
-/* INICIO CARDS */
+
 .texto-titulo{
     font-family: 'Lobster Two', cursive;
     font-size: 1.4rem;
@@ -50,8 +52,6 @@ h2{
 .tamanho-cards{
     max-height: 400px;
 }
-
-/* TÉRMINO CARDS */
 
 .secao-meuportifolio .grid{
     margin-top: 5em;
@@ -97,5 +97,3 @@ figure:active,
 figure:hover{
     transition: 2s;
 }
-
-/* TÉRMINO - SEÇÃO IMAGENS */
