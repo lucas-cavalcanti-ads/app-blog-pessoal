@@ -1,55 +1,62 @@
 <section class="secao-tecnologias" id="secao-tecnologias">
-    <h2 class="site-subtitle text-left">
-        Tecnologias, conceitos e metodologias em desenvolvimento
-    </h2>
 
-    <div class="d-flex flex-column mt-5">
-        <div class="col-12">
-            <h3>
-                Front-end
-            </h3>
-            <mat-list *ngFor="let i of listaTecnologiasFrontEnd">
-                <mat-list-item class="text-light">{{ i }}</mat-list-item>
-                <mat-divider></mat-divider>
-            </mat-list>
-        </div>
-        <div class="col-12">
-            <h3>
-                Back-end
-            </h3>
-            <mat-list *ngFor="let i of listaTecnologiasBackEnd">
-                <mat-list-item class="text-light">{{ i }}</mat-list-item>
-                <mat-divider></mat-divider>
-            </mat-list>
-        </div>
-        <div class="col-12">
-            <h3>
-                Mobile
-            </h3>
-            <mat-list *ngFor="let i of listaTecnologiasMobile">
-                <mat-list-item class="text-light">{{ i }}</mat-list-item>
-                <mat-divider></mat-divider>
-            </mat-list>
-        </div>
+    <div *ngIf="exibeSpinner" class="d-flex justify-content-center align-items-center container-spinner">
+        <mat-spinner></mat-spinner>
     </div>
-    <div class="d-flex flex-column">
-        <div class="col-12 ">
-            <h3>
-                Ferramentas
-            </h3>
-            <mat-list *ngFor="let i of listaTecnologiasFerramentas">
-                <mat-list-item class="text-light">{{ i }}</mat-list-item>
-                <mat-divider></mat-divider>
-            </mat-list>            
+
+    <div *ngIf="!exibeSpinner">
+        <h2 class="site-subtitle text-left">
+            Tecnologias, conceitos e metodologias em desenvolvimento
+        </h2>
+
+        <div class="d-flex flex-column mt-5">
+            <div class="col-12">
+                <h3>
+                    Front-end
+                </h3>
+                <mat-list *ngFor="let i of listaTecnologiasFrontEnd">
+                    <mat-list-item class="text-light">{{ i }}</mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+            </div>
+            <div class="col-12">
+                <h3>
+                    Back-end
+                </h3>
+                <mat-list *ngFor="let i of listaTecnologiasBackEnd">
+                    <mat-list-item class="text-light">{{ i }}</mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+            </div>
+            <div class="col-12">
+                <h3>
+                    Mobile
+                </h3>
+                <mat-list *ngFor="let i of listaTecnologiasMobile">
+                    <mat-list-item class="text-light">{{ i }}</mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+            </div>
         </div>
-        <div class="col-12">
-            <h3>
-                Metodologias e conceitos
-            </h3>
-            <mat-list *ngFor="let i of listaTecnologiasMetodologias">
-                <mat-list-item class="text-light">{{ i }}</mat-list-item>
-                <mat-divider></mat-divider>
-            </mat-list>                    
-        </div>        
+        <div class="d-flex flex-column">
+            <div class="col-12 ">
+                <h3>
+                    Ferramentas
+                </h3>
+                <mat-list *ngFor="let i of listaTecnologiasFerramentas">
+                    <mat-list-item class="text-light">{{ i }}</mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+            </div>
+            <div class="col-12">
+                <h3>
+                    Metodologias e conceitos
+                </h3>
+                <mat-list *ngFor="let i of listaTecnologiasMetodologias">
+                    <mat-list-item class="text-light">{{ i }}</mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+            </div>
+        </div>
     </div>
 </section>
