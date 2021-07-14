@@ -11,15 +11,6 @@ export class CabecalhoComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-    console.log("entrou iniciar")
-    //this.exibirSpinner = true;
-    setTimeout(this.funcaoSpinner, 3000);
-  }
-
-  funcaoSpinner(){
-    this.exibirSpinner = false;      
-    console.log("entrou " + this.exibirSpinner)
-  }
+  ngOnInit(): void { }
 
 }

@@ -1,5 +1,5 @@
-import { UtilitarioService } from './../../services/utilitario.service';
 import { PortifoliosService } from './../../services/portifolio.service';
+import { UtilitarioService } from './../../services/utilitario.service';
 
 import { Portifolio } from './../../models/portifolio.model';
 
