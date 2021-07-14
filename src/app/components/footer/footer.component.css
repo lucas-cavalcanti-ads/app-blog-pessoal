@@ -1,0 +1,14 @@
+.icone-rodape {
+    color: rgb(125, 123, 123);
+    font-size: 2rem;
+    
+}
+
+.link-icone{
+    text-decoration: none;
+}
+
+.icone-rodape:hover {
+    color: rgb(70, 69, 69);
+    font-size: 2rem;
+}
