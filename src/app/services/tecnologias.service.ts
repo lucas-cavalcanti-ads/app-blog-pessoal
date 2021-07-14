@@ -18,4 +18,18 @@ export class TecnologiasService{
     buscarTecnologiasFrontEnd(): Array<String> {
         return this.listaTecnologiasFrontEnd;
     }
+
+    buscarTecnologiasFerramentas(): Array<String> {
+        return this.listaTecnologiasFerramentas;
+    }
+
+    buscarTecnologiasMobile(): Array<String> {
+        return this.listaTecnologiasMobile;
+    }
+
+    buscarTecnologiasMetodologias(): Array<String> {
+        return this.listaTecnologiasMetodologias;
+    }
+
+
 }
