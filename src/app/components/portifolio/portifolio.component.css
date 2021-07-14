@@ -36,3 +36,7 @@ h2{
 .tamanho-cards{
     max-height: 400px;
 }
+
+.container-spinner {
+    height: 100vh;
+}

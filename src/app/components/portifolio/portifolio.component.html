@@ -1,22 +1,28 @@
 <section class="secao-meuportifolio" id="secao-meuportifolio">
-  <h2 class="site-subtitle text-left pt-3">
-    Portifófio
-  </h2>
-  <div class="container text-center">
-    <div class="row justify-content-center">
-      <div *ngFor="let portifolio of listaPortifolios" class="col-sm-8 col-md-12 col-lg-8 col-xl-4 p-0 m-4 efeito-card">
-        <mat-card class="example-card card">
-          <mat-card-header>
-            <mat-card-title>{{ portifolio.title }}</mat-card-title>
-          </mat-card-header>
-          <img mat-card-image src="{{ portifolio.url_image }}" alt="{{ portifolio.description }}">
-          <mat-card-content>
-            <p>
-              {{ portifolio.description }}
-            </p>
-          </mat-card-content>
-        </mat-card>
+  <div *ngIf="exibeSpinner" class="d-flex justify-content-center align-items-center container-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div *ngIf="!exibeSpinner">
+    <h2 class="site-subtitle text-left pt-3">
+      Portifófio
+    </h2>
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div *ngFor="let portifolio of listaPortifolios" 
+            class="col-sm-8 col-md-12 col-lg-8 col-xl-4 p-0 m-4 efeito-card">
+          <mat-card class="example-card card">
+            <mat-card-header>
+              <mat-card-title>{{ portifolio.title }}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="{{ portifolio.url_image }}" alt="{{ portifolio.description }}">
+            <mat-card-content>
+              <p>
+                {{ portifolio.description }}
+              </p>
+            </mat-card-content>
+          </mat-card>
+        </div>
       </div>
     </div>
-  </div>  
+  </div>
 </section>
