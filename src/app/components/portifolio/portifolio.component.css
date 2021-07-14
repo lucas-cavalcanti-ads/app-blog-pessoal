@@ -20,28 +20,12 @@ h2{
     text-shadow: 0px 0px 5px white;      
 }
 
-.texto-titulo{
-    font-family: 'Lobster Two', cursive;
-    font-size: 1.4rem;
-}
-
-.texto-cards{
-    font-family: 'Lobster Two', cursive;
-    font-size: 1.3rem;
-    height: 20vh;
-}
-
 .efeito-card:hover{
     -moz-transform: scale(1.05);
 	-webkit-transform: scale(1.05);
     transform: scale(1.05);
-    transition: 500ms;
-    border: 2px solid red;
-}
-
-.botao-fechar{
-    font-family: 'Lobster Two', cursive;
-    border-color: grey; 
+    transition: 700ms;
+    box-shadow: 1px 2px 10px 5px black;
 }
 
 .fundo-card{
@@ -51,49 +35,4 @@ h2{
 
 .tamanho-cards{
     max-height: 400px;
-}
-
-.secao-meuportifolio .grid{
-    margin-top: 5em;
-    display: grid;
-    gap: 2em;
-    justify-content: center;
-}
-
-@media(min-width: 0px){
-    .secao-meuportifolio .grid{
-        margin-left: 1.6em;        
-    }
-}
-
-@media(min-width: 840px){
-    .secao-meuportifolio .grid{
-        grid-template-columns: repeat(2, 50%);
-    }
-}
-@media(min-width: 1200px){
-    .secao-meuportifolio .grid{
-        align-content: center;
-        grid-template-columns: repeat(3, 30%);
-    }
-}
-
-.secao-meuportifolio figcaption{
-    color: white;
-    font-size: 1.3em;
-    transform: scale(1);
-    text-align: center;
-}
-
-.img-tecnologias{
-    height: 360;
-    object-fit: scale-down;
-    transform: scale(1);
-    width: 280px;
-}
-
-
-figure:active,
-figure:hover{
-    transition: 2s;
 }
