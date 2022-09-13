@@ -11,13 +11,8 @@ jobs:
   teste:
     runs-on: ubuntu-latest
     steps:      
-      - name: Create Pull Request
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}        
-        run: |
-          echo Criando Pull Request para Release
-          echo "Pull Request Number - ${{ github.event.pull_request.head.sha }}"
-          echo "$GITHUB_CONTEXT"
+      - name: Create Pull Request        
+        run: echo "Create Pull Request - ${{ github.ref_name }} into Release"          
         #uses: peter-evans/create-pull-request@v4
         #with:            
         #    commit-message: Create Pull Request Release
