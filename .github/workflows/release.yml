@@ -12,7 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:      
       - name: Create Pull Request
-        run: echo Criando Pull Request para Release
+        run: |
+          echo Criando Pull Request para Release
+          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
         #uses: peter-evans/create-pull-request@v4
         #with:            
         #    commit-message: Create Pull Request Release
