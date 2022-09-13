@@ -8,38 +8,39 @@ on:
 jobs:
   prepare-enviroment:
     runs-on: ubuntu-latest
-    steps:
+    steps:    
     - name: Checkout
-      uses: actions/checkout@v2
-    - name: Setup Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: 14
-  dependencies:
-    needs: prepare-enviroment
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Setup Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: 14
-    - name: Install dependencies
-      run: npm install                
-    - name: Build
-      run: npm run build:prod
-  build:
-    needs: [prepare-enviroment, dependencies]
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Setup Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: 14
-    - name: Install dependencies
-      run: npm install                
-    - name: Build
-      run: npm run build:prod
+      run: echo Rodando Build
+      #uses: actions/checkout@v2
+    #- name: Setup Node.js
+     # uses: actions/setup-node@v2
+      #with:
+       # node-version: 14
+  #dependencies:
+   # needs: prepare-enviroment
+    #runs-on: ubuntu-latest
+    #steps:
+    #- name: Checkout
+    #  uses: actions/checkout@v2
+    #- name: Setup Node.js
+    #  uses: actions/setup-node@v2
+    #  with:
+    #    node-version: 14
+    #- name: Install dependencies
+    #  run: npm install                
+    #- name: Build
+    #  run: npm run build:prod
+  #build:
+   # needs: [prepare-enviroment, dependencies]
+   # runs-on: ubuntu-latest
+   # steps:
+   # - name: Checkout
+   #   uses: actions/checkout@v2
+   # - name: Setup Node.js
+   #   uses: actions/setup-node@v2
+   #   with:
+   #     node-version: 14
+   # - name: Install dependencies
+   #   run: npm install                
+   # - name: Build
+   #   run: npm run build:prod
