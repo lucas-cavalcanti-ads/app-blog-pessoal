@@ -20,7 +20,7 @@ jobs:
       - name: Build
         run: npm run build:prod
   pull-request:
-    needs: [prepare-enviroment, dependencies, build]
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: cheking out code
