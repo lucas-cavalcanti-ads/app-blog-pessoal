@@ -26,8 +26,8 @@ jobs:
           branch: "release"
           base: master
           title: PR ${{ github.ref_name }} into release
-          commiter: Lucas
-          author: Lucas
+          commiter: ${{ env.GIT_COMMIT_AUTHOR_NAME }}
+          author: ${{ env.GIT_COMMIT_AUTHOR_NAME }}
           body:
             Pull Request - ${{ github.ref_name }} into release
           token: ${{ secrets.GITHUB_TOKEN }}
