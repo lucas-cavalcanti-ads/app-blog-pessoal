@@ -1,49 +1,49 @@
-name: '[BUILD - PR DEVELOPER]'
+name: "[BUILD - PR DEVELOPER]"
 
 on:
   push:
     branches:
-    - 'feature/**'
+      - "feature/**"
 
 jobs:
   prepare-enviroment:
     runs-on: ubuntu-latest
-    steps:    
-    - name: Checkout
-      run: echo Rodando Build
-      uses: actions/checkout@v2
-    - name: Setup Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: 14
+    steps:
+      - name: Checkout
+        run: echo Rodando Build
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
   dependencies:
     needs: prepare-enviroment
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Setup Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: 14
-    - name: Install dependencies
-      run: npm install                
-    - name: Build
-      run: npm run build:prod
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build:prod
   build:
     needs: [prepare-enviroment, dependencies]
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Setup Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: 14
-    - name: Install dependencies
-      run: npm install                
-    - name: Build
-      run: npm run build:prod
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build:prod
   pullRequest:
     needs: [prepare-enviroment, dependencies, build]
     runs-on: ubuntu-latest
@@ -56,7 +56,7 @@ jobs:
 
       - name: update author information
         run: echo ${{ env.GIT_COMMIT_AUTHOR_NAME }} > AUTHOR
-      
+
       - name: Create Pull Request - ${{ github.ref_name }} into release
         uses: peter-evans/create-pull-request@v3
         with:
@@ -65,7 +65,6 @@ jobs:
           title: PR ${{ github.ref_name }} into release
           commiter: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
           author: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
-          body:
-            Pull Request - ${{ github.ref_name }} into release
+          body: Pull Request - ${{ github.ref_name }} into release
           token: ${{ secrets.GITHUB_TOKEN }}
           delete-branch: false
