@@ -6,29 +6,6 @@ on:
       - "feature/**"
 
 jobs:
-  prepare-enviroment:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
-  dependencies:
-    needs: prepare-enviroment
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
-      - name: Install dependencies
-        run: npm install
-      - name: Build
-        run: npm run build:prod
   build:
     needs: [prepare-enviroment, dependencies]
     runs-on: ubuntu-latest
@@ -43,7 +20,7 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build:prod
-  pullRequest:
+  pull-request:
     needs: [prepare-enviroment, dependencies, build]
     runs-on: ubuntu-latest
     steps:
@@ -55,6 +32,9 @@ jobs:
 
       - name: update author information
         run: echo ${{ env.GIT_COMMIT_AUTHOR_NAME }} > AUTHOR
+
+      - name: NOME BRANCH
+        run: echo ${{ github.head_ref }}
 
       - name: Create Pull Request - ${{ github.ref_name }} into release
         uses: peter-evans/create-pull-request@v3
