@@ -8,7 +8,7 @@ on:
       - developer
 
 jobs:  
-  pullRequest:
+  create-pull-request:
     runs-on: ubuntu-latest
     steps:
       - name: cheking out code

@@ -8,7 +8,7 @@ on:
       - release
 
 jobs:  
-  pullRequest:
+  create-pull-request:
     runs-on: ubuntu-latest
     steps:
       - name: cheking out code
@@ -23,8 +23,8 @@ jobs:
       - name: Create Pull Request - ${{ github.ref_name }} into master
         uses: peter-evans/create-pull-request@v3
         with:
-          branch: release
-          base: master
+          branch: master
+          base: release
           title: PR ${{ github.ref_name }} into master
           commiter: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
           author: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
