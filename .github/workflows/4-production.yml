@@ -1,9 +1,11 @@
-name: Deploy
+name: '[DEPLOY PRODUCTION]'
 
 on:
-  push:
+  pull_request:
+    types:
+      - closed
     branches:
-    - master
+      - master
 
 jobs:
   deploy:
