@@ -18,4 +18,5 @@ jobs:
       - name: Install dependenciess
         run: npm install
       - name: Build
-        run: npm run build:prod 
+        run: npm run build:prod
+  
