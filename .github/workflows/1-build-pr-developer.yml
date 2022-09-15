@@ -15,7 +15,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
-      - name: Install dependencies
+      - name: Install dependenciess
         run: npm install
       - name: Build
         run: npm run build:prod
@@ -35,15 +35,15 @@ jobs:
       - name: NOME BRANCHH
         run: echo ${{ github.head_ref }}
 
-      - name: Create Pull Request - ${{ github.ref_name }} into release
+      - name: Create Pull Request - ${{ github.ref_name }} into developer
         uses: peter-evans/create-pull-request@v3
         with:
           branch: feature/melhorias-pipeline
           base: developer
-          title: PR ${{ github.ref_name }} into release
+          title: PR ${{ github.ref_name }} into developer
           commiter: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
           author: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
-          body: Pull Request - ${{ github.ref_name }} into release
+          body: Pull Request - ${{ github.ref_name }} into developer
           token: ${{ secrets.GITHUB_TOKEN }}
           delete-branch: false
 
