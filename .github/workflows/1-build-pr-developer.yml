@@ -32,7 +32,7 @@ jobs:
       - name: update author information
         run: echo ${{ env.GIT_COMMIT_AUTHOR_NAME }} > AUTHOR
 
-      - name: NOME BRANCHH
+      - name: NOME BRANCH
         run: echo ${{ github.head_ref }}
 
       - name: Create Pull Request - ${{ github.ref_name }} into developer
