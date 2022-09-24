@@ -2,7 +2,7 @@ name: '[DEPLOY PRODUCTION]'
 
 on:
   workflow_run:
-    workflows: [BUILD]
+    workflows: ["Build"]
     types: [requested]
 
 jobs:
