@@ -1,24 +1,11 @@
-name: "BUILD"
+name: "Build"
 
 on:
   push:
     branches:
       - "feature/**"
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
-      - name: Install dependenciess
-        run: npm install
-      - name: Build
-        run: npm run build:prod
+jobs:  
   create-pull-request:
     needs: build
     runs-on: ubuntu-latest
