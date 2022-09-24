@@ -23,8 +23,8 @@ jobs:
       - name: Create Pull Request - ${{ github.ref_name }} into release
         uses: peter-evans/create-pull-request@v3
         with:
-          branch: release
-          base: developer
+          branch: developer
+          base: release
           title: PR ${{ github.ref_name }} into release
           commiter: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
           author: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
