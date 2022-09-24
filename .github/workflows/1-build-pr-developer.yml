@@ -26,8 +26,8 @@ jobs:
       - name: Create Pull Request - ${{ github.ref_name }} into developer
         uses: peter-evans/create-pull-request@v3
         with:
-          branch: developer
-          base: feature/melhorias-pipeline
+          branch: feature/melhorias-pipeline
+          base: developer
           title: PR ${{ github.ref_name }} into developer
           commiter: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
           author: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
