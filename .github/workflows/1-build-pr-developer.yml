@@ -22,7 +22,7 @@ jobs:
 
       - name: NOME BRANCHH
         run: echo ${{ github.head_ref }}
-      - name: NOME BRANCHH
+      - name: NOME BRANCH
         run: core.error('ERROOOO')
 
       - name: Create Pull Request - ${{ github.ref_name }} into developer
