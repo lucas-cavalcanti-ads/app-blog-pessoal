@@ -32,11 +32,11 @@ jobs:
       - name: update author information
         run: echo ${{ env.GIT_COMMIT_AUTHOR_NAME }} > AUTHOR
 
-      - name: NOME BRANCH
+      - name: NOME BRANCHH
         run: echo ${{ github.head_ref }}
 
       - name: Create Pull Request - ${{ github.ref_name }} into developer
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v2
         with:
           branch: developer
           base: feature/melhorias-pipeline
