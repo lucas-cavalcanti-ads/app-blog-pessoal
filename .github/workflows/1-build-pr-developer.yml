@@ -1,4 +1,4 @@
-name: "[BUILD - PR DEVELOPER]"
+name: "BUILD"
 
 on:
   push:

@@ -1,0 +1,13 @@
+name: '[DEPLOY PRODUCTION]'
+
+on:
+  workflow_run:
+    workflows: [BUILD]
+    types: [requested]
+
+jobs:
+  teste:
+    runs-on: ubuntu-latest
+    steps:
+      - name: update author information
+        run: echo "TESTE"
