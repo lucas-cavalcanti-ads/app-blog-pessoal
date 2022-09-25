@@ -20,11 +20,11 @@ jobs:
       - name: update author information
         run: echo ${{ env.GIT_COMMIT_AUTHOR_NAME }} > AUTHOR
       
-      - name: Create Pull Request - ${{ github.ref_name }} into master
+      - name: Create Pull Request - release into master
         uses: peter-evans/create-pull-request@v3
         with:
-          branch: master
-          base: release
+          branch: master #from
+          base: release #into
           title: PR ${{ github.ref_name }} into master
           commiter: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
           author: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
