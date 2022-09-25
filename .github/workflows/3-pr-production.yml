@@ -23,12 +23,12 @@ jobs:
       - name: Create Pull Request - release into master
         uses: peter-evans/create-pull-request@v3
         with:
-          branch: master #from
-          base: release #into
-          title: PR ${{ github.ref_name }} into master
+          branch: master #into
+          base: release #from
+          title: PR release into master
           commiter: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
           author: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
           body:
-            Pull Request - ${{ github.ref_name }} into master
+            Pull Request - release into master
           token: ${{ secrets.GITHUB_TOKEN }}
           delete-branch: false
