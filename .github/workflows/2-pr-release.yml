@@ -5,7 +5,7 @@ on:
     types:
       - closed
     branches:
-      - developer
+      - developer  
 
 jobs:  
   create-pull-request:
@@ -20,15 +20,15 @@ jobs:
       - name: update author information
         run: echo ${{ env.GIT_COMMIT_AUTHOR_NAME }} > AUTHOR
       
-      - name: Create Pull Request - ${{ github.ref_name }} into release
+      - name: Create Pull Request - developer into release
         uses: peter-evans/create-pull-request@v3
         with:
-          branch: release
-          base: developer
-          title: PR ${{ github.ref_name }} into release
+          branch: release #into
+          base: developer #from
+          title: PR developer into release
           commiter: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
           author: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
           body:
-            Pull Request - ${{ github.ref_name }} into release
+            Pull Request - developer into release
           token: ${{ secrets.GITHUB_TOKEN }}
           delete-branch: false

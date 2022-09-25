@@ -1,4 +1,4 @@
-name: "[BUILD - PR DEVELOPER]"
+name: "[BUILD]"
 
 on:
   push:
@@ -18,32 +18,4 @@ jobs:
       - name: Install dependenciess
         run: npm install
       - name: Build
-        run: npm run build:prod
-  create-pull-request:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: cheking out code
-        uses: actions/checkout@v2
-
-      - name: extract git commit data
-        uses: rlespinasse/git-commit-data-action@v1.x
-
-      - name: update author information
-        run: echo ${{ env.GIT_COMMIT_AUTHOR_NAME }} > AUTHOR
-
-      - name: NOME BRANCHH
-        run: echo ${{ github.head_ref }}
-
-      - name: Create Pull Request - ${{ github.ref_name }} into developer
-        uses: peter-evans/create-pull-request@v2
-        with:
-          branch: developer
-          base: feature/melhorias-pipeline
-          title: PR ${{ github.ref_name }} into developer
-          commiter: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
-          author: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
-          body: Pull Request - ${{ github.ref_name }} into developer
-          token: ${{ secrets.GITHUB_TOKEN }}
-          delete-branch: false
-
+        run: npm run build:prod  
