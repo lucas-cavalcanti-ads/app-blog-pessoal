@@ -21,7 +21,7 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           commit-message: update authors
-          title: Update AUTHORS
-          body: Credit new contributors by updating AUTHORS
-          branch: developer
-          base: release
+          title: PR developer into releae
+          body: Pull Request - developer into release
+          branch: release
+          base: developer
