@@ -23,5 +23,5 @@ jobs:
           commit-message: update authors
           title: PR developer into releae
           body: Pull Request - developer into release
-          branch: release
-          base: developer
+          branch: developer #from
+          base: release #into
