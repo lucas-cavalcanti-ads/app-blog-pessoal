@@ -1,4 +1,4 @@
-name: "[BUILDD]"
+name: "[BUILD]"
 
 on:
   push:
@@ -33,10 +33,10 @@ jobs:
           delete-branch: false
       
       - name: Approve Pull Request
-        uses: juliangruber/approve-pull-request-action@v1.1.1
+        uses: juliangruber/approve-pull-request-action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          number: 1
+          pull_number: ${{ github.event.pull_request.number }}
 
 
         
