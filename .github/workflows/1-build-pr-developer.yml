@@ -12,18 +12,19 @@ jobs:
       - name: Teste
         run: echo PASSOU BUILD
         
-  jekyll_build:
+  example:
     runs-on: ubuntu-latest
-
-    steps:      
-      - name: Initialize Pull Request
-        uses: gha-utilities/init-pull-request@v0.3.3
+    steps:
+      - name: Open PR
+        id: open_pr
+        uses: rematocorp/open-pull-request-action@v1
         with:
-          verbose: true
-          pull_request_token: ${{ secrets.GITHUB_TOKEN }}
-          head: developer
-          base: feature/melhorias-pipeline
-          title: 'Updates site files from latest Actions build'
-          body: >
-            Perhaps a multi-line description
-            about latest features and such.
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          from-branch: feature/melhorias-pipeline
+          to-branch: developer
+          repository-owner: ${{ env.GIT_COMMIT_AUTHOR_NAME }}
+          repository: app-blog-pessoal
+          
+      - name: Echo mergeable PR number
+        run: echo ${{ steps.open_pr.outputs.pull_number }}
+    
