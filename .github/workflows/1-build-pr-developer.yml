@@ -5,26 +5,35 @@ on:
     branches:
       - "feature/**"
 
-jobs:
-  build:
+jobs:          
+  create-pull-request:
     runs-on: ubuntu-latest
     steps:
-      - name: Teste
-        run: echo PASSOU BUILD
-        
-  example:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Open PR
-        id: open_pr
-        uses: rematocorp/open-pull-request-action@v1
+      - name: cheking out code
+        uses: actions/checkout@v2
+
+      - name: extract git commit data
+        uses: rlespinasse/git-commit-data-action@v1.x
+
+      - name: update author information
+        run: echo ${{ env.GIT_COMMIT_AUTHOR_NAME }} > AUTHOR
+      
+      - name: Create Pull Request - release into master
+        id: create-pr
+        uses: peter-evans/create-pull-request@v3
+        with:
+          branch: feature/melhorias-pipeline #into
+          base: developer #from
+          title: PR feature/melhorias-pipeline into developer
+          commiter: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
+          author: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
+          body:
+            Pull Request - feature/melhorias-pipeline into developer
+          token: ${{ secrets.GITHUB_TOKEN }}
+          delete-branch: false
+      
+      - name: Approve Pull Request
+        uses: juliangruber/approve-pull-request-action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          from-branch: feature/melhorias-pipeline
-          to-branch: developer
-          repository-owner: ${{ env.GIT_COMMIT_AUTHOR_NAME }}
-          repository: app-blog-pessoal
-          
-      - name: Echo mergeable PR number
-        run: echo ${{ steps.open_pr.outputs.pull_number }}
-    
+          number: ${{ steps.create-pr.outputs.pull-request-number }}
