@@ -29,14 +29,14 @@ jobs:
           author: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
           body:
             Pull Request - feature/melhorias-pipeline into developer
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.APPROVER_GITHUB }}
           delete-branch: false
       
-      - name: Approve Pull Request
-        uses: juliangruber/approve-pull-request-action@v1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          pull_number: ${{ github.event.pull_request.number }}
+     # - name: Approve Pull Request
+      #  uses: juliangruber/approve-pull-request-action@v1
+       # with:
+        #  github-token: ${{ secrets.GITHUB_TOKEN }}
+         # pull_number: ${{ github.event.pull_request.number }}
 
 
         
