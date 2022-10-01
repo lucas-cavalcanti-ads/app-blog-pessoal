@@ -32,11 +32,11 @@ jobs:
           token: ${{ secrets.APPROVER_GITHUB }}
           delete-branch: false
       
-     # - name: Approve Pull Request
-      #  uses: juliangruber/approve-pull-request-action@v1
-       # with:
-        #  github-token: ${{ secrets.GITHUB_TOKEN }}
-         # pull_number: ${{ github.event.pull_request.number }}
+      - name: Approve Pull Request
+        uses: juliangruber/approve-pull-request-action@v1
+        with:
+          github-token: ${{ secrets.APPROVER_GITHUB }}
+          pull_number: ${{ github.event.pull_request.number }}
 
 
         
