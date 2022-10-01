@@ -1,4 +1,4 @@
-name: '[PR RELEASE]'
+name: '[PR RELEASEE]'
 
 on:
   pull_request:
