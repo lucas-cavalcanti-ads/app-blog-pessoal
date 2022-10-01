@@ -11,36 +11,11 @@ jobs:
     steps:
       - name: Teste
         run: echo PASSOU BUILD
-        #feature/melhorias-pipeline
-      #- name: Checkout
-      #  uses: actions/checkout@v2
-      #- name: Setup Node.js
-      #  uses: actions/setup-node@v2
-      #  with:
-      #    node-version: 14
-      #- name: Install dependenciess
-      #  run: npm install
-      #- name: Build
-      #  run: npm run build:prod  
+        
   jekyll_build:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout source branch for building Pages
-        uses: actions/checkout@v2
-        with:
-          ref: feature/melhorias-pipeline
-          fetch-depth: 10
-      
-      #BUILD
-
-      - name: Checkout branch for Pull Requesting to GitHub Pages
-        uses: actions/checkout@v2
-        with:
-          ref: developer
-          fetch-depth: 1
-          submodules: true
-
+    steps:      
       - name: Initialize Pull Request
         uses: gha-utilities/init-pull-request@v0.3.3
         with:
