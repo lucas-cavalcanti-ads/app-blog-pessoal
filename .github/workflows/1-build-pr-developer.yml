@@ -7,7 +7,6 @@ on:
 
 jobs:          
   create-auto-pull-request:    
-    needs: test
     runs-on: ubuntu-latest    
     steps:      
       - name: Open PR Develop
