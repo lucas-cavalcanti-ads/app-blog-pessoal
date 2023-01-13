@@ -1,4 +1,4 @@
-name: "[BUILD - PR DEVELOPER]"
+name: "1 - Build & Create PR Developer"
 
 on:
   push:
@@ -11,39 +11,29 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 14
+      
       - name: Install dependenciess
         run: npm install
+      
       - name: Build
         run: npm run build:prod
-  create-pull-request:
+
+  create-auto-pull-request:
     needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: cheking out code
-        uses: actions/checkout@v2
-
-      - name: extract git commit data
-        uses: rlespinasse/git-commit-data-action@v1.x
-
-      - name: update author information
-        run: echo ${{ env.GIT_COMMIT_AUTHOR_NAME }} > AUTHOR
-
-      - name: NOME BRANCHH
-        run: echo ${{ github.head_ref }}
-
-      - name: Create Pull Request - ${{ github.ref_name }} into developer
-        uses: peter-evans/create-pull-request@v2
+    runs-on: ubuntu-latest    
+    steps:      
+      - name: Open PR Developer
+        id: open_pr
+        uses: rematocorp/open-pull-request-action@v1
         with:
-          branch: developer
-          base: feature/melhorias-pipeline
-          title: PR ${{ github.ref_name }} into developer
-          commiter: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
-          author: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
-          body: Pull Request - ${{ github.ref_name }} into developer
-          token: ${{ secrets.GITHUB_TOKEN }}
-          delete-branch: false
-
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          from-branch: ${{ github.ref_name }}
+          to-branch: developer
+          repository-owner: ${{ github.repository_owner }}
+          repository: ${{ github.event.repository.name }}
+        

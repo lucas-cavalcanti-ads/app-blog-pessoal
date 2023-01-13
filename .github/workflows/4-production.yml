@@ -1,4 +1,4 @@
-name: '[DEPLOY PRODUCTION]'
+name: '4 - Deploy AWS'
 
 on:
   pull_request:
@@ -8,7 +8,8 @@ on:
       - master
 
 jobs:
-  deploy:
+  deploy-aws:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
     - name: Configure AWS Credentials
@@ -28,9 +29,6 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-
-    #- name: Run tests
-    # run: npm run test:headless
 
     - name: Build
       run: npm run build:prod
