@@ -1,11 +1,28 @@
-name: "[BUILD]"
+name: "1 - Build & Create PR Developer"
 
 on:
   push:
     branches:
       - "feature/**"
 
-jobs:          
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      
+      - name: Install dependenciess
+        run: npm install
+      
+      - name: Build
+        run: npm run build:prod
+
   create-auto-pull-request:    
     runs-on: ubuntu-latest    
     steps:      
