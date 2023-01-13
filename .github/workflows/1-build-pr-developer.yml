@@ -1,42 +1,39 @@
-name: "[BUILD]"
+name: "1 - Build & Create PR Developer"
 
 on:
   push:
     branches:
       - "feature/**"
 
-jobs:          
-  create-pull-request:
+jobs:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: cheking out code
+      - name: Checkout
         uses: actions/checkout@v2
-
-      - name: extract git commit data
-        uses: rlespinasse/git-commit-data-action@v1.x
-
-      - name: update author information
-        run: echo ${{ env.GIT_COMMIT_AUTHOR_NAME }} > AUTHOR
       
-      - name: Create Pull Request - release into master
-        id: create-pr
-        uses: peter-evans/create-pull-request@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          branch: developer #into
-          base: feature/melhorias-pipeline #from
-          title: PR feature/melhorias-pipeline into developer
-          commiter: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
-          author: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
-          body:
-            Pull Request - feature/melhorias-pipeline into developer
-          token: ${{ secrets.APPROVER_GITHUB }}
-          delete-branch: false
+          node-version: 14
       
-      - name: Approve Pull Request
-        uses: juliangruber/approve-pull-request-action@v1
+      - name: Install dependenciess
+        run: npm install
+      
+      - name: Build
+        run: npm run build:prod
+
+  create-auto-pull-request:
+    needs: build
+    runs-on: ubuntu-latest    
+    steps:      
+      - name: Open PR Developer
+        id: open_pr
+        uses: rematocorp/open-pull-request-action@v1
         with:
-          github-token: ${{ secrets.APPROVER_GITHUB }}
-          number: ${{ steps.create-pr.outputs.pull-request-number }}
-
-
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          from-branch: ${{ github.ref_name }}
+          to-branch: developer
+          repository-owner: ${{ github.repository_owner }}
+          repository: ${{ github.event.repository.name }}
         
