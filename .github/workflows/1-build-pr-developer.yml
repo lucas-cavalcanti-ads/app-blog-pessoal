@@ -9,13 +9,13 @@ jobs:
   create-auto-pull-request:    
     runs-on: ubuntu-latest    
     steps:      
-      - name: Open PR Develop
+      - name: Open PR Developer
         id: open_pr
         uses: rematocorp/open-pull-request-action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           from-branch: ${{ github.ref_name }}
-          to-branch: develop
+          to-branch: developer
           repository-owner: ${{ github.repository_owner }}
           repository: ${{ github.event.repository.name }}
         
