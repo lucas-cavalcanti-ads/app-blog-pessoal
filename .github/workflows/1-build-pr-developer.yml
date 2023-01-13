@@ -1,4 +1,4 @@
-name: "[BUILDD]"
+name: "1 - Build & Create PR Developer"
 
 on:
   push:
@@ -9,15 +9,31 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Teste
-        run: echo PASSOU BUILD
-      #- name: Checkout
-      #  uses: actions/checkout@v2
-      #- name: Setup Node.js
-      #  uses: actions/setup-node@v2
-      #  with:
-      #    node-version: 14
-      #- name: Install dependenciess
-      #  run: npm install
-      #- name: Build
-      #  run: npm run build:prod  
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      
+      - name: Install dependenciess
+        run: npm install
+      
+      - name: Build
+        run: npm run build:prod
+
+  create-auto-pull-request:
+    needs: build
+    runs-on: ubuntu-latest    
+    steps:      
+      - name: Open PR Developer
+        id: open_pr
+        uses: rematocorp/open-pull-request-action@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          from-branch: ${{ github.ref_name }}
+          to-branch: developer
+          repository-owner: ${{ github.repository_owner }}
+          repository: ${{ github.event.repository.name }}
+        
