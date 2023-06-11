@@ -3,13 +3,11 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class PortifoliosService{
-
-    listaPortifolios: Array<Portifolio> = [];
     
     constructor(){}
 
-    buscarPortifolios(): Array<Portifolio> {
-        return this.listaPortifolios = [
+    private montarListaPortifolios(): Array<Portifolio> {
+        return [
             {
                 title: "Blog Frontend",
                 url_image: "https://app-blog-pessoal-imagens.s3.sa-east-1.amazonaws.com/blog-frontend.png",
@@ -41,5 +39,9 @@ export class PortifoliosService{
                 description: "Protótipo da aplicação para a problemática proposta.",
             }
         ];
-    }    
+    }  
+    
+    buscarListaPortifolios(): Array<Portifolio>{                
+        return this.montarListaPortifolios();
+    }
 }
