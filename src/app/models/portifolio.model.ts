@@ -1,5 +1,6 @@
 export interface Portifolio{
     title: string;
-    url_image: string;
+    link: string;
     description: string;
+    infos_chaves: Array<String>;
 }
