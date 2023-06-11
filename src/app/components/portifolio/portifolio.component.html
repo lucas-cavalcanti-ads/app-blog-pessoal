@@ -4,25 +4,29 @@
   </div>
   <div *ngIf="!exibeSpinner">
     <h2 class="site-subtitle text-left pt-3">
-      Portifófio
+      Portifólio
     </h2>
-    <div class="container text-center">
-      <div class="row justify-content-center">
-        <div *ngFor="let portifolio of listaPortifolios" 
-            class="col-sm-8 col-md-12 col-lg-8 col-xl-4 p-0 m-4 efeito-card">
-          <mat-card class="example-card card">
-            <mat-card-header>
-              <mat-card-title>{{ portifolio.title }}</mat-card-title>
-            </mat-card-header>
-            <img mat-card-image src="{{ portifolio.url_image }}" alt="{{ portifolio.description }}">
+    <div class="container d-flex justify-content-center flex-wrap">
+      
+        <div *ngFor="let portifolio of listaPortifolios" class="col-sm-8 col-md-12 col-lg-8 col-xl-4 p-0 m-4">
+          <mat-card class="example-card">
+            <div class="mat-h3">
+              {{ portifolio.title }}
+            </div>                          
             <mat-card-content>
+              <div class="d-flex" >
+                <p *ngFor="let chave of portifolio.infos_chaves"> #{{ chave }}</p>
+              </div>              
               <p>
                 {{ portifolio.description }}
               </p>
             </mat-card-content>
+            <mat-card-actions>
+              <a href="{{ portifolio.link }}" mat-button>saiba mais</a>              
+            </mat-card-actions>
           </mat-card>
         </div>
-      </div>
+      
     </div>
   </div>
 </section>

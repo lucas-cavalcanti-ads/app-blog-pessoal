@@ -20,7 +20,7 @@ export class PortifolioComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     await this.serviceUtilitario.delay();
     this.exibirSpinner();
-    this.listaPortifolios = this.servicePortifolio.buscarPortifolios();
+    this.listaPortifolios = this.servicePortifolio.buscarListaPortifolios();
   }
 
   exibirSpinner(){
