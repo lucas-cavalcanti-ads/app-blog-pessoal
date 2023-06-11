@@ -3,17 +3,16 @@
         <mat-spinner></mat-spinner>
     </div>
     <div *ngIf="!exibeSpinner">
+
         <h2 class="site-subtitle text-left">
             Tecnologias, conceitos e metodologias em desenvolvimento
         </h2>
         <div class="d-flex flex-column mt-5">
-            <div *ngFor="let tecnologia of listaTecnologias" class="col-12">
-                <h3>
-                    {{ tecnologia.title }}
-                </h3>
-                <mat-list *ngFor="let i of tecnologia.tecnologias">
-                    <mat-list-item class="text-light">{{ i }}</mat-list-item>
-                    <mat-divider></mat-divider>
+            <div *ngFor="let tecnologia of listaTecnologias" class="col-12 mb-5">
+                <h2>{{ tecnologia.title }}</h2>
+                <mat-list *ngFor="let item of tecnologia.tecnologias; let i = index" [attr.data-index]="i">
+                    <mat-list-item class="text-light">{{ item }}</mat-list-item>
+                    <mat-divider *ngIf="tecnologia.tecnologias.length != (i+1)"></mat-divider>
                 </mat-list>
             </div>
         </div>

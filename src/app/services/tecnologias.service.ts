@@ -5,37 +5,50 @@ import { Injectable } from '@angular/core';
 @Injectable({ providedIn: 'root' })
 export class TecnologiasService{
 
-    listaTecnologias: Array<ListaTecnologias> = [];    
-
     constructor(){}
 
-    montarListaTodasTecnologias(){
-        this.listaTecnologias = [
-            {
-                title: "Back-End",
-                tecnologias: ["Spring Boot", "Maven", "Java", "Java EE"]
-            },
+    private montarListaTodasTecnologias(): Array<ListaTecnologias>{
+        return [
             {
                 title: "Front-End",
-                tecnologias: ["Angular 2+", "Angular JS", "Type Script", "Java Script", "Bootstrap", "HTML 5", "CSS 3"]
+                tecnologias: ["Micro Front-End", "Angular 2+", "Angular JS", "Type Script", "Java Script", "Angular Material", "Bootstrap", "HTML 5", "CSS 3"]
             },
             {
-                title: "Mobile",
-                tecnologias: ["React Native", "Kotlin"]
+                title: "Back-End",
+                tecnologias: ["Java", "Spring Boot", "Maven", "BFF"]
+            },
+            {
+                title: "DevOps",
+                tecnologias: ["Docker", "Git", "Github", "Github Actions"]
+            },
+            {
+                title: "Cloud",
+                tecnologias: ["AWS"]
+            },
+            {
+                title: "Analytics",
+                tecnologias: ["SAS", "Google Analytics"]
+            },
+            {
+                title: "Observability",
+                tecnologias: ["Splunk", "Grafana"]
             },
             {
                 title: "Ferramentas",
-                tecnologias: ["Jira Corp", "Gitlab", "Github", "Postman", "Swagger", "Adobe XD", "Android Studio"]
+                tecnologias: ["Jira Corp", "Insomnia", "Postman", "Swagger", "Adobe XD", "Android Studio"]
             },
             {
                 title: "Metodologias",
-                tecnologias: ["Rest", "JSON", "Metodologia Ágil (Scrum, Kanban)", "UX/UI"]
+                tecnologias: ["Arquitetura de Software", "Rest", "Metodologia Ágil (Scrum, Kanban)", "UX/UI"]
+            },
+            {
+                title: "Softs Skills",
+                tecnologias: ["Resolução de problemas", "Comunicação", "Liderança", "Trabalho em equipe"]
             }
         ]
     }
 
-    buscarTodasTecnologias(): Array<ListaTecnologias>{        
-        this.montarListaTodasTecnologias();
-        return this.listaTecnologias;
+    buscarTodasTecnologias(): Array<ListaTecnologias>{                
+        return this.montarListaTodasTecnologias();
     }
 }
